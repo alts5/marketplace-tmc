@@ -4,6 +4,13 @@ input, button {
     font-size: inherit;
     outline: none;
     font-family: inherit;
+    border-radius: 25px;
+    width: 100%;
+    padding: var(--elem-padding-vertical) var(--elem-padding-horizontal);
+}
+
+input {
+        border: 1px solid var(--system-grey);
 }
 
 input {
@@ -18,7 +25,6 @@ a:hover {
 button {
     background: linear-gradient(26deg, #363aba 0%, #2891d2 100%);
     color: white;
-    padding: var(--elem-padding-vertical) var(--elem-padding-horizontal);
 }
 
 button:hover {
@@ -63,26 +69,12 @@ img.clickable:hover {
     padding: 5px;
 }
 
-.field-container, button {
-    border-radius: 25px;
-    width: 400px;
-}
-
 legend {
     text-align: left;
     padding: 0 5px;
 }
 
-.field-container {
-    border: 1px solid #cfcfcf;
-    box-sizing: border-box;
-    font-size: 15px;
-    padding: calc(var(--elem-padding-vertical) - 4px) var(--elem-padding-horizontal);
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-}
+
 
 .field-container:has(.clickable) {
     padding: calc(var(--elem-padding-vertical) - 9px) var(--elem-padding-horizontal);
@@ -106,5 +98,4 @@ legend {
 .notify-message-icon {
     width: 30px;
 }
-
 

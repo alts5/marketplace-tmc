@@ -1,0 +1,138 @@
+/* -- icons -- */
+.iconS {
+	width: 20px;
+}
+
+.iconM {
+	width: 50px;
+}
+
+.iconL {
+	width: 20px;
+}
+
+.inputFieldset {
+	display: flex;
+	align-items: center;
+	gap: var(--theme-flex-gap); 
+	border: none;
+	border-bottom: 1px solid var(--theme-grey);
+	padding: 3px 5px;
+}
+
+.radioFieldset {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border: none;
+	gap: calc(var(--theme-flex-gap) + 10px); 
+}
+
+
+
+/* -- user's input and actions -- */
+
+form {
+	padding: 0;
+	margin: 0;
+}
+
+button, input:not([type=radio]) {
+	outline: none;
+	cursor: pointer;
+	padding: 13px;
+	border: none;
+	border-radius: var(--theme-border-radius);
+	font: inherit;
+}
+
+button {
+	display: inline-flex;
+	gap: var(--theme-flex-gap);
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonStd {
+	padding: 15px 30px;
+}
+
+.buttonStd:not(:disabled) {
+	background: var(--theme-blue-grad);
+	color: var(--theme-white);
+	position: relative;
+}
+
+.buttonStd:not(:disabled)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  pointer-events: none;
+  transition: background 0.2s ease;
+}
+
+.buttonStd:not(:disabled):hover::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.buttonStd:not(:disabled):active::before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.buttonStd:disabled {
+	color: var(--theme-grey);
+}
+
+.buttonEmpty {
+	background: none;
+}
+
+.buttonEmpty:hover {
+	background: #f7f7f7;
+}
+
+.buttonEmpty:active {
+	background: #ededed;
+}
+
+input, input[type=radio], progress {
+	width: 100%;
+}
+
+progress, input[type=radio] {
+	accent-color: var(--theme-blue);
+}
+
+input[type=radio] {
+	width: 20px;
+	height: 20px;
+	margin: 0;
+}
+
+input {
+	color: inherit;
+}
+
+.buttonEmpty:focus-visible {
+	outline: 1px solid var(--theme-grey);
+}
+
+.buttonStd:focus-visible, input[type=radio]:focus-visible {
+	outline: 1px solid var(--theme-grey);
+	outline-offset: 5px;
+}
+
+/* -- visualisation -- */
+progress {
+	width: 100%;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: inherit;
+}

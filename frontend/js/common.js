@@ -13,22 +13,24 @@ $("form").submit(function (e) {
     const form = $(this)
 
     $.ajax({
-            url: '/auth/token',
+            url: '/token',
             method: $(this).attr('method'),
             data: $(this).serialize() + '&grant_type=password',
             dataType: "json",
             beforeSend: function (xhr) {
-                xhr.setRequestHeader ("Authorization", "Basic " + btoa("myapp" + ":" + "mysecret"))
                 btn.prop('disabled', true);
             },
             success: function(data) {
-                localStorage.setItem("at", data['access_token'])
                 notifySend("success")
+                window.location.href = "/front/lk.html"
             },
             error: function(data){
                 switch(data["status"]) {
-                    case 401:
+                    case 401 || 400:
                         notifySend("error", "Неверный логин или пароль")
+                        break
+                    case 500:
+                        notifySend("error", "Ошибка на стороне сервера")
                         break
                     default:
                         notifySend("error", "Ошибка при подключении к серверу")
@@ -38,26 +40,7 @@ $("form").submit(function (e) {
                 form.find("input").val("")
                 setTimeout(() => btn.prop('disabled', false), 5000);
             }
-    });
-    return false;
-});
+    })
+    return false
+})
 
-
-$("#test").on("click", () => {
-    $.ajax({
-            url: 'http://localhost:8080/rest/entities/User',
-            method: "get",
-            dataType: "json",
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("at")
-            },
-            success: function(data){
-                console.log(data["_entityName"])
-                console.log(data)
-            },
-            error: function(data){
-                console.log(1)
-                console.log(data)
-            }
-        });
-});

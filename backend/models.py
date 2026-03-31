@@ -1,6 +1,8 @@
 from enum import Enum
 from uuid import UUID, uuid7
-from pydantic import BaseModel, EmailStr, datetime, PhoneNumber
+from pydantic import BaseModel, EmailStr
+from pydantic_extra_types.phone_numbers import PhoneNumber
+from datetime import datetime
 
 
 class BaseObject(BaseModel):
@@ -61,10 +63,22 @@ class Factor(BaseObject):
 
 
 class User(BaseObject):
-    login: str
-    password: str
+    username: str
+    hashed_password: str
     nickname: str
     role: Role
-    email: EmailStr
-    phone_number: PhoneNumber
+    email: EmailStr | None = None
+    phone_number: PhoneNumber | None = None
     organization: Organization
+
+class Token(BaseModel):
+    token: str
+
+class TokenData(BaseModel):
+    username: str | None = None
+    scopes: list[str] = []
+
+class UserInDB(BaseModel):
+    username: str
+    hashed_password: str
+

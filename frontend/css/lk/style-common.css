@@ -1,0 +1,68 @@
+@import "components.css";
+@import "fonts.css";
+@import "forms.css";
+
+	
+html, body {
+	margin: 0;
+	padding: 20px;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	width: 100%;
+	color: var(--theme-black);
+	box-sizing: border-box;
+	font-size: var(--theme-content-font-size);
+	gap: calc(var(--theme-flex-gap) + 10px);
+	font-family: 'Comfortaa';
+	line-height: 1.5;
+	
+	--theme-black: #3c4052;
+	--theme-grey: #7c7f90;
+	--theme-white: #ffffff;
+	--theme-semiwhite: #efefef;
+	--theme-red: #FF4646;
+	--theme-blue: #288BF1;
+	--theme-red-grad: linear-gradient(135deg, #B91D26, #FF4646);
+	--theme-blue-grad: linear-gradient(135deg, #175BA1, #288BF1);
+	--theme-flex-gap: 10px;
+	--theme-content-font-size: 16px;
+	--theme-border-radius: 10px;
+}
+
+.subHeader {
+	color: var(--theme-grey);
+	margin: 0;
+}
+
+.dangerGrad {
+	background: var(--theme-red-grad)!important;
+}
+
+.danger {
+	background: var(--theme-red)!important;
+}
+
+.passive {
+	background: var(--theme-semiwhite)!important;
+	color: var(--theme-black)!important;
+}
+
+.formSpaceBetween {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--theme-flex-gap);
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px;}
+::-webkit-scrollbar-track {  background-color: #eee; }
+::-webkit-scrollbar-thumb { background-color: var(--theme-grey);}
